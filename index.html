@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Fylo data storage component</title>
+  </head>
+  <body>
+    <main class="container">
+      <div class="card main__left">
+        <img class="logo" src="images/logo.svg" alt="" />
+        <div class="icon-box">
+          <img src="images/icon-document.svg" alt="" />
+          <img src="images/icon-folder.svg" alt="" />
+          <img src="images/icon-upload.svg" alt="" />
+        </div>
+      </div>
+
+      <div class="card main__right">
+        <p>You’ve used <span>815 GB</span> of your storage</p>
+        <div class="scroll-box">
+          <div class="scroll-bar">
+            <!--the circle must be inside the scroll-bar-->
+            <div class="scroll-circle"></div>
+          </div>
+        </div>
+        <div class="gb">
+          <p>0 GB</p>
+          <p>1000 GB</p>
+        </div>
+
+        <div class="storage-floating-box">
+          <div class="content">
+            <h1>185</h1>
+            <p>GB Left</p>
+          </div>
+          <div class="triangle"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

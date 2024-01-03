@@ -1,0 +1,217 @@
+:root {
+  --clr-gradient-1: hsl(6, 100%, 80%);
+  --clr-gradient-2: hsl(335, 100%, 65%);
+
+  --clr-pale-blue: hsl(243, 100%, 93%);
+  --grayish-blue: hsl(229, 7%, 55%);
+  --dark-blue: hsl(228, 56%, 26%);
+  --very-dark-blue: hsl(229, 57%, 11%);
+
+  --ff-main: "Raleway", sans-serif;
+
+  --fw-400: 400;
+  --fw-700: 700;
+
+  --br: 0.5em;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  font-size: 14px;
+  font-family: var(--ff-main);
+  /*display: grid;
+  place-items: center; I had to remove these so that it would be responsive*/
+  background-image: url(images/bg-mobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*color: var(--clr-pale-blue);*/
+}
+.container {
+  /*min-width: 470px;*/
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.card {
+  background-color: var(--dark-blue);
+  border-radius: var(--br);
+  width: 86%; /*once I did this the bottom box became the same width as the top one*/
+}
+h1 {
+  color: var(--very-dark-blue);
+  font-size: 2rem;
+}
+.logo {
+  width: 60%;
+}
+
+.main__left {
+  border-top-right-radius: 10rem !important;
+  padding: 4rem;
+  /*margin-top: 6em;*/
+}
+.main__right {
+  padding: 3rem 3rem 5rem 3rem;
+  position: relative; /*Must have this for the white floating box*/
+}
+.main__left .icon-box {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.main__left .icon-box img {
+  background-color: var(--very-dark-blue);
+  padding: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--br);
+}
+.main__right p {
+  width: 100%;
+  color: var(--clr-pale-blue);
+  text-align: center;
+}
+.main__right p span {
+  font-weight: var(--fw-700);
+}
+.gb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.gb p:first-child {
+  text-align: left;
+}
+.gb p:nth-child(2) {
+  text-align: right;
+}
+.scroll-box {
+  background-color: var(--very-dark-blue);
+  width: 100%;
+  border-radius: 100px;
+  margin: 1.8rem 0 1rem 0;
+  padding: 3px;
+}
+.scroll-bar {
+  width: 75%;
+  background-image: linear-gradient(
+    90deg,
+    hsl(6, 100%, 80%),
+    hsl(335, 100%, 65%)
+  ); /*not background-color*/
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 1rem;
+  padding: 1px;
+}
+.scroll-circle {
+  border-radius: 50%;
+  height: 1.1rem;
+  width: 1.1rem;
+  background-color: var(--clr-pale-blue);
+}
+
+.storage-floating-box {
+  /*remember this includes the triangle*/
+  position: absolute;
+  left: 50%;
+  top: 78%;
+}
+.storage-floating-box .content {
+  background-color: white;
+  border-radius: var(--br);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem 2.6rem;
+  position: relative;
+  left: -50%;
+}
+.storage-floating-box p {
+  text-transform: uppercase;
+  margin-left: 0.8rem;
+  white-space: nowrap; /*so that it will never break onto 2 lines*/
+}
+
+.triangle {
+  display: none;
+}
+
+@media (min-width: 1440px) {
+  body {
+    background-image: url(images/bg-desktop.png);
+    background-size: contain; /*this moved it up and it looks like it cut off the bottom?*/
+    background-position-y: bottom; /*this moved it to sit on the bottom
+    but then the top part what white so I had to add the color*/
+    background-color: var(--very-dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    flex-direction: row;
+    align-items: flex-end;
+    height: fit-content; /*this moved it up*/
+    width: 64%;
+  }
+
+  .main__left {
+    padding: 3rem 8rem 3rem 3rem;
+    flex: 0 0 40%;
+    /* margin-top: 17em;*/
+  }
+  .main__right {
+    flex: 0 0 60%;
+    /*margin-top: 20em;*/
+    padding: 3rem 3rem;
+  }
+  .main__right p {
+    text-align: left;
+  }
+  .gb {
+    margin-bottom: 0;
+  }
+  .storage-floating-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    left: unset;
+    right: 2.3rem;
+    top: -22%;
+    /*position: absolute;
+    left: 82.3%;
+    top: 33%;*/
+  }
+  .storage-floating-box .content {
+    left: 0;
+    border-bottom-right-radius: 0;
+  }
+  .triangle {
+    width: 0;
+    height: 0;
+    border-right: 10px solid white;
+    border-top: 10px solid white;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    display: block;
+    /*transform: rotate(225deg);*/
+    /*position: absolute;
+    left: 5%;
+    top: 10%;*/
+  }
+}
